@@ -22,8 +22,8 @@ import Header from "../components/Header.astro";
       content="Desarrollador web, ngj, ngjoficial, Informatico, Web Developer, 
       Nicolas Garcia, Informatico Rengo, Informatico Chile, Desarollador Software"
     />
-    <!--=============== SCROLL REVEAL===============-->
-    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--=============== AOS===============-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <!--=============== Google Font ===============-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,10 +37,11 @@ import Header from "../components/Header.astro";
     <Header />
     <slot />
 
-    <script is:inline src="https://unpkg.com/scrollreveal"></script>
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script is:inline>
-      // GENERAL SETTING
-      window.sr = ScrollReveal({ reset: true });
+      AOS.init({
+        offset: 180,
+      });
     </script>
   </body>
 </html>
