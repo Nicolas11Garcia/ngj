@@ -1,9 +1,114 @@
-<header class="bg-red-500">
-    <img src="" alt="ngj-logo">
-    <nav>
-        <a href="">Home</a>
-        <a href="">About</a>
-        <a href="">Projects</a>
-        <a href="" class=" ">Contact</a>
+<header
+  id="header"
+  style="transition: 0.7s;"
+  class="header max-w-[1120px] mx-auto w-full flex flex-col items-center
+   py-3 min-h-[90px] text-negro sticky z-50 bg-[#fffbf6]"
+>
+  <div class="flex w-full justify-between min-h-[72px] items-center">
+    <a href="#top" class="text-xl font-bold">Ngj</a>
+    <nav class="hidden sm:flex gap-12">
+      <a href="#top">Inicio</a>
+      <a href="#trabajos">Trabajos</a>
+      <a href="#experiencia-laboral">Experiencia laboral</a>
+      <a href="#contacto" class="">Contacto</a>
     </nav>
+
+    <button type="button" class="block sm:hidden" id="open-close-menu">
+      <svg
+        id="open-icon-menu"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-8 h-8"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+      </svg>
+      <svg
+        id="close-icon-menu"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-8 h-8 hidden"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <nav
+    id="menu-responsive"
+    class="hidden flex-col w-full gap-4 mt-6 border-b border-b-gray-300 pb-6"
+  >
+    <a class="enlace-responsive" href="#top">Inicio</a>
+    <a class="enlace-responsive" href="#trabajos">Trabajos</a>
+    <a class="enlace-responsive" href="#experiencia-laboral"
+      >Experiencia laboral</a
+    >
+    <a class="enlace-responsive" href="#contacto" class="">Contacto</a>
+  </nav>
 </header>
+
+<script>
+  // Obtén referencias a los elementos del DOM
+  const menuButton = document.getElementById("open-close-menu");
+  const menu = document.getElementById("menu-responsive");
+  const openIcon = document.getElementById("open-icon-menu");
+  const closeIcon = document.getElementById("close-icon-menu");
+
+  // Agrega un evento de clic al botón
+  menuButton.addEventListener("click", function () {
+    // Toggle entre las clases hidden y flex
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("flex");
+
+    // Toggle entre las clases hidden y visible para los íconos
+    openIcon.classList.toggle("hidden");
+    openIcon.classList.toggle("block");
+    closeIcon.classList.toggle("hidden");
+    closeIcon.classList.toggle("block");
+  });
+
+  function closeMenu() {
+    menu.classList.remove("flex");
+    menu.classList.add("hidden");
+
+    openIcon.classList.remove("hidden");
+    openIcon.classList.add("flex");
+
+    closeIcon.classList.add("hidden");
+    closeIcon.classList.remove("flex");
+  }
+
+  var enlaces = document.getElementsByClassName("enlace-responsive");
+
+  for (var i = 0; i < enlaces.length; i++) {
+    enlaces[i].addEventListener("click", function () {
+      closeMenu();
+    });
+  }
+
+  let ubicacionPrincipal = window.pageYOffset;
+  window.onscroll = function () {
+    let Desplazamiento_Actual = window.pageYOffset;
+    if (Desplazamiento_Actual > 100) {
+      if (ubicacionPrincipal > Desplazamiento_Actual) {
+        document.getElementById("header").style.top = "0";
+      } else {
+        document.getElementById("header").style.top = "-200px";
+        closeMenu();
+      }
+    }
+
+    ubicacionPrincipal = Desplazamiento_Actual;
+  };
+</script>

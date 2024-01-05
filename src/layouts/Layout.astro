@@ -1,9 +1,10 @@
 ---
 interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 import Header from "../components/Header.astro";
 ---
 
@@ -11,10 +12,18 @@ import Header from "../components/Header.astro";
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Ngj" />
+    <meta
+      name="keywrods"
+      content="Desarrollador web, ngj, ngjoficial, Informatico, Web Developer, 
+      Nicolas Garcia, Informatico Rengo, Informatico Chile, Desarollador Software"
+    />
+    <!--=============== SCROLL REVEAL===============-->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <!--=============== Google Font ===============-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,8 +33,41 @@ import Header from "../components/Header.astro";
     />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="px-6">
     <Header />
     <slot />
+
+    <script is:inline src="https://unpkg.com/scrollreveal"></script>
+    <script is:inline>
+      // GENERAL SETTING
+      window.sr = ScrollReveal({ reset: true });
+    </script>
   </body>
 </html>
+
+<style is:global>
+  *,
+  html {
+    scroll-behavior: smooth !important;
+  }
+
+  .tooltip {
+    @apply invisible absolute;
+  }
+
+  .has-tooltip:hover .tooltip {
+    @apply visible z-50;
+  }
+  body {
+    background: #fffbf6;
+    font-family: "Inter", sans-serif !important;
+  }
+
+  header {
+    transition: transform 0.3s ease;
+  }
+
+  .header-hidden {
+    transform: translateY(-100%);
+  }
+</style>

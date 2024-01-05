@@ -1,11 +1,62 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Home from "../components/Home.astro";
+import Trabajos from "../components/Trabajos.astro";
+import ExperienciaLaboral from "../components/ExperienciaLaboral.astro";
+import Contacto from "../components/Contacto.astro";
+import Footer from "../components/Footer.astro";
+import EnviadoExitoso from "../components/EnviadoExitoso.astro";
 ---
 
-<Layout title="Welcome to Astro." />
+<Layout
+  title="NGJ - Inicio"
+  description="Portafolio de Ngj - Hola soy Nicolás Garcia.Desarollador Web ubicado en Chile, Rengo y soy Titulado en Ingeniería en Informática."
+>
+  <main>
+    <Home />
+    <Trabajos />
+    <ExperienciaLaboral />
+    <Contacto />
+    <Footer />
+    <EnviadoExitoso />
+  </main>
+</Layout>
 
-<style>
-  body {
-    font-family: "Inter", sans-serif !important;
+
+
+<script>
+  const toast_msj = document.getElementById("toast_msj");
+  // Obtén la cadena de consulta de la URL
+  var queryString = window.location.search;
+
+  // Crea un objeto URLSearchParams para trabajar con la cadena de consulta
+  var params = new URLSearchParams(queryString);
+
+  // Obtén el valor del parámetro 'e'
+  var valor = params.get("e");
+
+  if (valor == 1) {
+    params.delete("e");
+    // Construye una nueva URL sin el parámetro 'e'
+    var newUrl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+
+    // Agrega los nuevos parámetros si existen
+    if (params.toString() !== "") {
+      newUrl += "?" + params.toString();
+    }
+
+    // Reemplaza la URL actual
+    history.replaceState({}, document.title, newUrl);
+
+    toast_msj.classList.add("flex");
+    toast_msj.classList.remove("hidden");
+    setTimeout(function () {
+      toast_msj.classList.remove("flex");
+      toast_msj.classList.add("hidden");
+    }, 3000);
   }
-</style>
+</script>

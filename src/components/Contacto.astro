@@ -1,0 +1,159 @@
+<section id="contacto" class="max-w-[1120px] mx-auto w-full mb-[40px]">
+  <h2
+    class="text-2xl sm:text-6xl text-negro border-b border-gray-300 pb-10 font-bold"
+  >
+    Contacto
+  </h2>
+
+  <div>
+    <div class="contact-section grid grid-cols-1 md:grid-cols-3 mt-10 gap-10">
+      <div>
+        <p class="text-negro text-lg mb-[30px] text-pretty">
+          ¿Tienes algunda duda o quieres más información? Rellena el siguiente
+          formulario
+        </p>
+      </div>
+
+      <div class="col-span-2">
+        <form
+          class="text-negro"
+          action="https://formsubmit.co/65667054a682826b495302bb70c8ec45 "
+          method="POST"
+        >
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-5">
+            <div class="flex flex-col">
+              <label for="name" class="mb-2 text-base sm:text-lg">Nombre:</label
+              >
+              <input
+                required
+                id="name"
+                class="text-sm sm:text-base px-5 py-3 rounded-lg border-inherit
+                outline-none bg-white border focus:ring-2 focus:ring-primary"
+                type="text"
+                name="name"
+                placeholder="Ingresa tu nombre"
+              />
+            </div>
+            <div class="flex flex-col">
+              <label for="lastname" class="mb-2 text-base sm:text-lg"
+                >Apellido:</label
+              >
+              <input
+                id="lastname"
+                required
+                class="text-sm sm:text-base px-5 py-3 rounded-lg border-inherit
+                 outline-none bg-white border focus:ring-2 focus:ring-primary"
+                type="text"
+                name="lastname"
+                placeholder="Ingresa tu apellido"
+              />
+            </div>
+          </div>
+          <div class="flex flex-col mb-5">
+            <label for="email" class="mb-2 text-base sm:text-lg"
+              >Correo electrónico:</label
+            >
+            <input
+              id="email"
+              required
+              class="text-sm sm:text-base px-5 py-3 rounded-lg border-inherit
+               outline-none bg-white border focus:ring-2 focus:ring-primary"
+              type="email"
+              name="email"
+              placeholder="Ingresa tu correo electrónico"
+            />
+          </div>
+          <div class="flex flex-col">
+            <label for="mensaje" class="mb-2 text-base sm:text-lg"
+              >Mensaje:</label
+            >
+            <textarea
+              id="mensaje"
+              required
+              class="text-sm sm:text-base px-5 py-3 min-h-[180px] border
+               rounded-lg border-inherit outline-none
+                 bg-white focus:ring-2 focus:ring-primary"
+              name="msj"
+              placeholder="Ingresa tu mensaje"></textarea>
+          </div>
+          <div class="flex justify-end">
+            <div class="flex flex-col items-end">
+              <button
+                id="send_email"
+                type="submit"
+                class="bg-primary py-3 px-6 flex rounded-[14px] text-white mt-8 text-sm sm:text-base"
+                ><svg
+                  id="loadEmail"
+                  class="animate-spin hidden -ml-1 mr-2 h-5 w-5 text-white"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    class="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    stroke-width="4"></circle>
+                  <path
+                    class="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
+                </svg>Enviar</button
+              >
+              <p id="alertMsj" class="text-red-600 text-sm hidden mt-2">
+                Rellena todos los campos
+              </p>
+            </div>
+
+            <input type="hidden" name="_next" value="http://localhost:4321/?e=1" />
+            <input type="hidden" name="_captcha" value="false" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const send_email = document.getElementById("send_email");
+
+  const name = document.getElementById("name");
+  const lastname = document.getElementById("lastname");
+  const email = document.getElementById("email");
+  const msj = document.getElementById("mensaje");
+
+  const alertMs = document.getElementById("alertMsj");
+  const loadEmail = document.getElementById("loadEmail");
+
+  send_email.addEventListener("click", function () {
+    if (
+      name.value === "" ||
+      lastname.value === "" ||
+      email.value === "" ||
+      msj.value === ""
+    ) {
+      console.log("entre");
+      alertMs.classList.toggle("flex");
+      alertMs.classList.toggle("hidden");
+    } else {
+      alertMs.classList.remove("flex");
+      alertMs.classList.add("hidden");
+
+      loadEmail.classList.toggle("flex");
+      loadEmail.classList.toggle("hidden");
+    }
+  });
+</script>
+
+
+<script>
+
+  sr.reveal(".contact-section", {
+    origin: "bottom",
+    duration: 2000,
+    distance: "60px",
+  });
+</script>
