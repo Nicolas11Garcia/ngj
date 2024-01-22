@@ -5,7 +5,6 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -13,76 +12,104 @@ import Header from "../components/Header.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/logo-ngj.webp" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="author" content="Ngj" />
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EEJRR28MBH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EEJRR28MBH');
-</script>
     <meta
       name="keywrods"
       content="Desarrollador web, ngj, ngjoficial, Informatico, Web Developer, 
-      Nicolas Garcia, Informatico Rengo, Informatico Chile, Desarollador Software"
+    Nicolas Garcia, Informatico Rengo, Informatico Chile, Desarollador Software"
     />
-    <!--=============== AOS===============-->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!--=============== Google Font ===============-->
+    <meta name="viewport" content="width=device-width" />
+    <meta property="og:image" content="/logo-ngj.webp" />
+    <meta name="generator" content={Astro.generator} />
+    <!--Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+    <!--Google fonts 2 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&display=swap"
+      rel="stylesheet"
+    />
+    <!--=============== AOS===============-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>{title}</title>
   </head>
-  <body class="px-6">
-    <Header />
+  <body>
     <slot />
+    <script
+      is:inline
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+    ></script>
+    <script is:inline>
+      $(document).ready(function () {
+        // Add smooth scrolling to all links
+        $("a").on("click", function (event) {
+          // Make sure this.hash has a value before overriding default behavior
+          if (this.hash !== "") {
+            // Prevent default anchor click behavior
+            event.preventDefault();
 
+            // Store hash
+            var hash = this.hash;
+
+            // Using jQuery's animate() method to add smooth page scroll
+            // Subtracting 200 pixels from the offset().top value
+            $("html, body").animate(
+              {
+                scrollTop: $(hash).offset().top - 100,
+              },
+              600
+            );
+
+            // Ensure that the hash is updated immediately after the animation starts
+            // by triggering a scroll event
+            $(window).trigger("scroll");
+          } // End if
+        });
+      });
+    </script>
     <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script is:inline>
       AOS.init({
-        offset: 180,
+        offset: 80,
       });
     </script>
   </body>
 </html>
-
 <style is:global>
-  @font-face {
-    font-family:;
-    src: url(/font/Satoshi-Regular.ttf);
-  }
-
-  *,
   html {
-    scroll-behavior: smooth !important;
+    scroll-behavior: smooth;
   }
 
-  .tooltip {
-    @apply invisible absolute;
+  nav {
+    max-width: 100% !important;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
   }
-
-  .has-tooltip:hover .tooltip {
-    @apply visible z-50;
-  }
-  body {
-    background: #fffbf6;
-    font-family: "Satoshi", sans-serif !important;
-  }
-
   header {
-    transition: transform 0.3s ease;
+    max-width: 1400px !important;
+    padding: 0px !important;
+    padding-right: 24px !important;
+    padding-left: 24px !important;
   }
 
-  .header-hidden {
-    transform: translateY(-100%);
+  body {
+    font-family: "Mulish", sans-serif;
+    background: white;
+  }
+
+  .titulo {
+    font-family: "Fraunces", serif;
+  }
+
+  .sombra {
+    border-radius: 8px;
+    background: #fcfcfc;
+    box-shadow: 0px 18px 58px 16px rgba(0, 0, 0, 0.06);
   }
 </style>
