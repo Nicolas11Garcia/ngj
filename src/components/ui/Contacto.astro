@@ -1,137 +1,117 @@
 <section
   id="contacto"
   data-aos="fade-up"
-  class="w-full flex flex-col items-center justify-center max-w-[1400px] mx-auto my-[77px] px-6"
+  class="w-full flex flex-col items-center justify-center max-w-[1400px] mx-auto py-[90px] px-6"
 >
   <div class="flex items-center gap-2 mb-16">
     <h2 class="text-primary text-xl font-bold uppercase">Contacto</h2>
     <img width="35" height="35" src="/telefono.webp" alt="telefono-icon" />
   </div>
 
-  <form
-    class="text-negro w-full mx-auto max-w-[800px]"
-    action="https://formsubmit.co/65667054a682826b495302bb70c8ec45"
-    method="POST"
-  >
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-5">
-      <div class="flex flex-col">
-        <label for="name" class="mb-2 text-base sm:text-lg text-primary">Nombre:</label>
-        <input
-          required
-          id="name"
-          class="text-sm sm:text-base px-6 py-5 rounded-lg border border-[#DCDCDC]
-                outline-none bg-white focus:ring-2 ring-secundary"
-          type="text"
-          name="name"
-          placeholder="Ingresa tu nombre"
-        />
-      </div>
-      <div class="flex flex-col">
-        <label for="lastname" class="mb-2 text-base sm:text-lg text-primary">Apellido:</label
-        >
-        <input
-          id="lastname"
-          required
-          class="text-sm sm:text-base px-6 py-5 rounded-lg border border-[#DCDCDC]
-                outline-none bg-white focus:ring-2 ring-secundary"
-          type="text"
-          name="lastname"
-          placeholder="Ingresa tu apellido"
-        />
-      </div>
-    </div>
+  <form id="form" class="text-negro w-full mx-auto max-w-[800px]">
+    <!--Nombre -->
     <div class="flex flex-col mb-5">
-      <label for="email" class="mb-2 text-base sm:text-lg text-primary"
-        >Correo electrónico:</label
+      <label class="mb-2 text-base sm:text-lg text-primary" for="from_name"
+        >Nombre</label
       >
       <input
-        id="email"
-        required
         class="text-sm sm:text-base px-6 py-5 rounded-lg border border-[#DCDCDC]
-        outline-none bg-white focus:ring-2 ring-secundary"
+      outline-none bg-white focus:ring-2 ring-secundary"
+        type="text"
+        name="from_name"
+        id="from_name"
+        required
+        placeholder="Ingresa tu nombre"
+      />
+    </div>
+    <!--Correo -->
+    <div class="flex flex-col mb-5">
+      <label class="mb-2 text-base sm:text-lg text-primary" for="email_id"
+        >Correo electrónico</label>
+      <input
+        class="text-sm sm:text-base px-6 py-5 rounded-lg border border-[#DCDCDC]
+      outline-none bg-white focus:ring-2 ring-secundary"
         type="email"
-        name="email"
+        name="email_id"
+        id="email_id"
+        required
         placeholder="Ingresa tu correo electrónico"
       />
     </div>
-    <div class="flex flex-col">
-      <label for="mensaje" class="mb-2 text-base sm:text-lg text-primary">Mensaje:</label>
+    <!--Mensaje -->
+    <div class="flex flex-col mb-5">
+      <label class="mb-2 text-base sm:text-lg text-primary" for="message"
+        >Mensaje</label
+      >
       <textarea
-        id="mensaje"
-        required
         class="text-sm sm:text-base px-6 py-5 min-h-[200px] rounded-lg border border-[#DCDCDC]
-        outline-none bg-white focus:ring-2 ring-secundary"
-        name="msj"
-        placeholder="Ingresa tu mensaje"></textarea>
+      outline-none bg-white focus:ring-2 ring-secundary"
+        name="message"
+        placeholder="Ingresa mensaje"
+        required
+        id="message"
+      ></textarea>
     </div>
+    <!--Button -->
     <div class="flex justify-end w-full">
-      <div class="flex flex-col items-end w-full">
+      <div class="flex flex-col items-center w-full">
         <button
-          id="send_email"
           type="submit"
+          id="button"
           class="bg-secundary mx-auto py-3 px-6 flex justify-center rounded-[14px]
            text-white mt-8 text-sm sm:text-base"
         >
-          <svg
-            id="loadEmail"
-            class="animate-spin hidden -ml-1 mr-2 h-5 w-5 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              class="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              stroke-width="4"></circle>
-            <path
-              class="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
           Enviar
         </button>
         <p id="alertMsj" class="text-red-600 text-sm hidden mt-2">
           Rellena todos los campos
         </p>
       </div>
-
-      <input type="hidden" name="_next" value="https://ngj.vercel.app/?e=1" />
-      <input type="hidden" name="_captcha" value="false" />
     </div>
   </form>
 </section>
 
 <script is:inline>
-  const send_email = document.getElementById("send_email");
+function validarEmail(email) {
+  // Patrón de expresión regular para validar el formato del correo electrónico
+  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  // Verificar si el correo electrónico coincide con el patrón
+  return regex.test(email);
+}
 
-  const name = document.getElementById("name");
-  const lastname = document.getElementById("lastname");
-  const email = document.getElementById("email");
-  const msj = document.getElementById("mensaje");
 
-  const alertMs = document.getElementById("alertMsj");
-  const loadEmail = document.getElementById("loadEmail");
+  const btn = document.getElementById("button");
 
-  send_email.addEventListener("click", function () {
-    if (
-      name.value === "" ||
-      lastname.value === "" ||
-      email.value === "" ||
-      msj.value === ""
-    ) {
-      console.log("entre");
-      alertMs.classList.add("flex");
-      alertMs.classList.remove("hidden");
-    } else {
-      alertMs.classList.remove("flex");
-      alertMs.classList.add("hidden");
+  document.getElementById("form").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-      loadEmail.classList.add("flex");
-      loadEmail.classList.remove("hidden");
+
+    const serviceID = "default_service";
+    const templateID = "template_fsyvrmd";
+
+    if($('#from_name').val() === "" || $('#message').val() === "" || $('#email_id').val() === ""){
+      $('#alertMsj').addClass('flex').removeClass('hidden').text('Rellena todos los campos');
+      return;
     }
+
+    if(!validarEmail($('#email_id').val())){
+      $('#alertMsj').addClass('flex').removeClass('hidden').text('Ingresa un email valido');
+      return;
+    }
+    $('#alertMsj').removeClass('flex').addClass('hidden');
+    btn.innerHTML = "Enviando...";
+
+
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.value = "Send Email";
+        window.location.href = 'https://ngj.vercel.app/?e=1'
+      },
+      (err) => {
+        btn.value = "Send Email";
+        alert(JSON.stringify(err));
+      }
+    );
   });
 </script>
