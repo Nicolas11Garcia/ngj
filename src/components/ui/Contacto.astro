@@ -27,7 +27,8 @@
     <!--Correo -->
     <div class="flex flex-col mb-5">
       <label class="mb-2 text-base sm:text-lg text-primary" for="email_id"
-        >Correo electrónico</label>
+        >Correo electrónico</label
+      >
       <input
         class="text-sm sm:text-base px-6 py-5 rounded-lg border border-[#DCDCDC]
       outline-none bg-white focus:ring-2 ring-secundary"
@@ -49,8 +50,7 @@
         name="message"
         placeholder="Ingresa mensaje"
         required
-        id="message"
-      ></textarea>
+        id="message"></textarea>
     </div>
     <!--Button -->
     <div class="flex justify-end w-full">
@@ -72,41 +72,48 @@
 </section>
 
 <script is:inline>
-function validarEmail(email) {
-  // Patrón de expresión regular para validar el formato del correo electrónico
-  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  // Verificar si el correo electrónico coincide con el patrón
-  return regex.test(email);
-}
+  function validarEmail(email) {
+    // Patrón de expresión regular para validar el formato del correo electrónico
+    var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+    // Verificar si el correo electrónico coincide con el patrón
+    return regex.test(email);
+  }
 
   const btn = document.getElementById("button");
 
   document.getElementById("form").addEventListener("submit", function (event) {
     event.preventDefault();
 
-
     const serviceID = "default_service";
     const templateID = "template_fsyvrmd";
 
-    if($('#from_name').val() === "" || $('#message').val() === "" || $('#email_id').val() === ""){
-      $('#alertMsj').addClass('flex').removeClass('hidden').text('Rellena todos los campos');
+    if (
+      $("#from_name").val().trim() === "" ||
+      $("#message").val().trim() === "" ||
+      $("#email_id").val().trim() === ""
+    ) {
+      $("#alertMsj")
+        .addClass("flex")
+        .removeClass("hidden")
+        .text("Rellena todos los campos");
       return;
     }
 
-    if(!validarEmail($('#email_id').val())){
-      $('#alertMsj').addClass('flex').removeClass('hidden').text('Ingresa un email valido');
+    if (!validarEmail($("#email_id").val())) {
+      $("#alertMsj")
+        .addClass("flex")
+        .removeClass("hidden")
+        .text("Ingresa un email valido");
       return;
     }
-    $('#alertMsj').removeClass('flex').addClass('hidden');
+    $("#alertMsj").removeClass("flex").addClass("hidden");
     btn.innerHTML = "Enviando...";
-
 
     emailjs.sendForm(serviceID, templateID, this).then(
       () => {
         btn.value = "Send Email";
-        window.location.href = 'https://ngj.vercel.app/?e=1'
+        window.location.href = "https://ngj.vercel.app/?e=1";
       },
       (err) => {
         btn.value = "Send Email";
