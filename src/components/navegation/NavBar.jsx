@@ -20,8 +20,8 @@ export const NavBar = () => {
 
   return (
     <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+      {/*Logo */}
       <NavbarContent justify="start">
-        {/*Logo */}
         <NavbarBrand>
           <img
             className="-ml-4"
@@ -32,14 +32,13 @@ export const NavBar = () => {
         </NavbarBrand>
       </NavbarContent>
       {/*Menu bar */}
-      <NavbarContent justify="end">
+      <NavbarContent className="md:hidden" justify="end">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
         />
       </NavbarContent>
       {/*LINKS EN EL CENTRO */}
-      <NavbarContent className="hidden sm:flex gap-10" justify="center">
+      <NavbarContent className="hidden md:flex gap-10" justify="center">
         <NavbarItem>
           <Link href="#top" className="text-base text-negro font-semibold">
             Inicio
