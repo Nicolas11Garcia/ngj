@@ -7,22 +7,32 @@ interface Props {
   link: string;
 }
 
-const { color,titulo,descripcion,imagen,link } = Astro.props;
+const { color, titulo, descripcion, imagen, link } = Astro.props;
 ---
 
-<div data-aos="fade-up" class={`max-w-[677px] ${color} rounded-[16px] p-6 sm:p-8`}>
-  <img src={imagen} alt={`img-project-${titulo}`} />
-  <h3
-    class="titulo text-2xl text-primary font-semibold mt-4 mb-4 leading-1 sm:text-[40px] sm:leading-10"
-  >
-    {titulo}
-  </h3>
-  <p class="mb-8 text-plomo text-balance text-base sm:text-lg">{descripcion}</p>
+<div
+  data-aos="fade-up"
+  class={`max-w-[677px] flex justify-between flex-col ${color} rounded-[16px] p-6 sm:p-8`}
+>
+  <div>
+    <img src={imagen} alt={`img-project-${titulo}`} />
+    <h3
+      class="titulo text-2xl text-primary font-semibold mt-4 mb-4 leading-1 sm:text-[40px] sm:leading-10"
+    >
+      {titulo}
+    </h3>
+    <p class="mb-8 text-plomo text-balance text-base sm:text-lg">
+      {descripcion}
+    </p>
+  </div>
+
   <a
     href={link}
     target="_blank"
-    class="text-white inline-flex
-     justify-center items-center gap-2 bg-negro p-4 px-10 text-base rounded-2xl sm:text-lg"
+    class="flex justify-center items-center gap-2 bg-negro p-4 
+    px-10 text-base rounded-2xl sm:text-lg font-semibold bg-gradient-to-r
+       text-white  max-w-[240px]
+       hover:scale-105 duration-300"
     >Ver proyecto <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
