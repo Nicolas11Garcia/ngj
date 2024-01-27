@@ -29,6 +29,12 @@ export const Habilidades = () => {
             alt="laravel-logo"
           />
         </Tooltip>
+        <Tooltip content="Astro">
+          <img
+            src="https://skillicons.dev/icons?i=astro"
+            alt="astro-logo"
+          />
+        </Tooltip>
         <Tooltip content="PHP">
           <img src="https://skillicons.dev/icons?i=php" alt="php-logo" />
         </Tooltip>
