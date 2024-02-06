@@ -1,4 +1,5 @@
 ---
+import { ImageZoomed } from "./TrabajosItem/ImageZoomed";
 interface Props {
   color: string;
   titulo: string;
@@ -15,7 +16,7 @@ const { color, titulo, descripcion, imagen, link } = Astro.props;
   class={`max-w-[677px] flex justify-between flex-col ${color} rounded-[16px] p-6 sm:p-8`}
 >
   <div>
-    <img src={imagen} alt={`img-project-${titulo}`} />
+    <ImageZoomed src={imagen} alt={`img-project-${titulo}`}  client:load/>
     <h3
       class="titulo text-2xl text-primary font-semibold mt-4 mb-4 leading-1 sm:text-[40px] sm:leading-10"
     >

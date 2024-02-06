@@ -4,7 +4,7 @@ import { Tooltip, Button } from "@nextui-org/react";
 export const Habilidades = () => {
   return (
     <div className="mt-2 flex justify-center">
-      <div className="flex max-w-[388px] flex-wrap w-full justify-center gap-2">
+      <div className="flex max-w-[308px] flex-wrap w-full justify-center gap-2">
         <Tooltip content="HTML">
           <img src="https://skillicons.dev/icons?i=html" alt="html-logo" />
         </Tooltip>
@@ -23,20 +23,26 @@ export const Habilidades = () => {
         <Tooltip content="React Js">
           <img src="https://skillicons.dev/icons?i=react" alt="reactjs-logo" />
         </Tooltip>
-        <Tooltip content="Jquery">
-          <img src="https://skillicons.dev/icons?i=jquery" alt="reactjs-logo" />
-        </Tooltip>
         <Tooltip content="Laravel">
           <img
             src="https://skillicons.dev/icons?i=laravel"
             alt="laravel-logo"
           />
         </Tooltip>
-        <Tooltip content="Astro">
+        <Tooltip content="Jquery">
+          <img src="https://skillicons.dev/icons?i=jquery" alt="reactjs-logo" />
+        </Tooltip>
+        <Tooltip content="PostgreSQL">
           <img
-            src="https://skillicons.dev/icons?i=astro"
-            alt="astro-logo"
+            src="https://skillicons.dev/icons?i=postgresql"
+            alt="PostgreSQL-logo"
           />
+        </Tooltip>
+        <Tooltip content="MySQL">
+          <img src="https://skillicons.dev/icons?i=mysql" alt="MySQL-logo" />
+        </Tooltip>
+        <Tooltip content="Astro">
+          <img src="https://skillicons.dev/icons?i=astro" alt="astro-logo" />
         </Tooltip>
         <Tooltip content="PHP">
           <img src="https://skillicons.dev/icons?i=php" alt="php-logo" />
