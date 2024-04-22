@@ -1,3 +1,7 @@
+---
+import ExperienciaItem from "./ExperienciaItem.astro";
+---
+
 <section
   data-aos="fade-up"
   id="experiancia-laboral"
@@ -11,40 +15,34 @@
       <img width="35" height="35" src="/maletin.webp" alt="maletin-icon" />
     </div>
 
-    <div class="w-full flex justify-end">
-      <ol class="relative max-w-[830px] border-s border-[#cccccc]">
-        <li class="mb-10 ms-6">
-          <div
-            class="absolute w-3 h-3 rounded-full
-             mt-1.5 -start-1.5 border-white bg-secundary"
-          >
-          </div>
-          <time class="text-base font-normal leading-none text-plomo"
-            >Agosto 2023 - Octubre 2023</time
-          >
-          <h3
-            class="titulo font-semibold text-2xl mt-2 text-primary leading-7 sm:text-[40px] sm:leading-10"
-          >
-            Hospital Regional Rancagua - Práctica profesional
-          </h3>
-          <p
-            class="text-base sm:text-lg font-semibold leading-none text-celeste mt-6 mb-4"
-          >
-            Desarrollador web
-          </p>
-          <p
-            class="mb-4 text-base sm:text-lg font-normal text-gray-500 mt-2 text-balance"
-          >
-            Responsable de crear páginas web autoadministrables destinadas a
-            diversos departamentos hospitalarios, en donde se requería subir
-            documentos, noticias, calendario con eventos, entre otras funciones.
-            Además, llevé a cabo pruebas del software desarrollado, elaboré
-            manuales de usuario detallados, y realicé presentaciones y reuniones
-            para la toma de requisitos con las personas solicitantes del sitio
-            web a desarrollar.
-          </p>
-        </li>
-      </ol>
+    <div class="w-full flex flex-col gap-y-4 justify-end">
+      <ExperienciaItem
+        fecha="Febrero 2024 - Vigente"
+        empresa="Grupo Vortex"
+        cargo={"Desarrollador web"}
+        descripcion=`
+        En mi primera etapa en la empresa fui 
+        responsable de brindar mantenimiento y
+         mejoras al software existente, además lideré
+          un pequeño equipo de practicantes. 
+            Posteriormente desarrollé
+                una versión completamente
+                 nueva del software, enfocada en la 
+                 escalabilidad y eficiencia, lo que 
+                 ha resultado en una mejora significativa 
+                 en la experiencia de los usuarios. 
+                 Como parte de este proyecto, también 
+                 rediseñé la página de inicio del software (Landing page), 
+                 mejorando la estética y la entrega de
+                  información para los 
+                 usuarios.`
+      />
+      <ExperienciaItem
+        fecha="Agosto 2023 - Octubre 2023"
+        empresa="Hospital Regional Rancagua - Práctica profesional"
+        cargo={"Desarrollador web"}
+        descripcion="Responsable de crear páginas web autoadministrables destinadas a diversos departamentos hospitalarios, en donde se requería subir documentos, noticias, calendario con eventos, entre otras funciones. Además, llevé a cabo pruebas del software desarrollado, elaboré manuales de usuario detallados, y realicé presentaciones y reuniones para la toma de requisitos con las personas solicitantes del sitio web a desarrollar."
+      />
     </div>
   </div>
 </section>
