@@ -1,59 +1,82 @@
 ---
-import TrabajosItem from "./TrabajosItem.astro";
+import { TabsTrabajos } from "./Trabajos/TabsTrabajos";
 
 const TRABAJOS = [
+{
+    color: "bg-[#EAF5E7]",
+    titulo: "Vortex One - ERP",
+    descripcion:
+      "Plataforma de ERP para emprendedores, facilitando el control de inventario, análisis de ventas, gastos y más. Desarrollada con React JS y Tailwind",
+    link: "https://1vortex.com/login",
+    imagen: "/trabajos/trabajo-8.webp",
+    tipo: "full-stack",
+  },
+  {
+    color: "bg-[#EAF5E7]",
+    titulo: "Vortex One - Landing Page",
+    descripcion:
+      "Página de inicio de Vortex One: Presenta las funciones integrales de la empresa. Construido usando React JS y Tailwind",
+    link: "https://1vortex.com/",
+    imagen: "/trabajos/trabajo-7.webp",
+    tipo: "front-end",
+
+  },
   {
     color: "bg-[#E7F5F0]",
-    titulo: "Full-stack - Epidemiología",
+    titulo: "Epidemiología",
     descripcion:
       "Sitio web autoadministrable desarrollado en mi práctica laboral en el Hospital de Rancagua para el departamento de Epidemiología. Utilicé Laravel para el backend y ReactJS para el frontend.",
     link: "https://epi.hospitalrancagua.cl/",
     imagen: "/trabajos/trabajo-4.webp",
+    tipo: "full-stack",
   },
   {
     color: "bg-[#E7F5F0]",
-    titulo: "Full-stack - Unidad de investigación",
+    titulo: "Unidad de investigación",
     descripcion:
       "Sitio web autoadministrable desarrollado en mi práctica laboral en el Hospital de Rancagua para el departamento de Unidad de Investigación en donde se requirieron múltiples funciones. Utilicé Laravel para el backend y ReactJS para el frontend.",
     link: "https://ui.hospitalrancagua.cl/",
     imagen: "/trabajos/trabajo-3.webp",
+    tipo: "full-stack",
   },
 
   {
     color: "bg-[#F4E7F5]",
-    titulo: "Full-stack - Tienda y consultoría veterinaria",
-    descripcion:
-      `Sitio web desarrollado en mi etapa de estudiante sobre una tienda y consultoría 
+    titulo: "Tienda y consultoría veterinaria",
+    descripcion: `Sitio web desarrollado en mi etapa de estudiante sobre una tienda y consultoría 
       de mascotas. Se pueden gestionar los productos en el carrito y posteriormente finalizar 
       la compra (no cuenta con ninguna API de algún banco) y también cuenta con un foro en 
       donde los dueños de las mascotas ingresan sus dudas y son respondidas por el equipo 
       profesional de la tienda. Trabajado con PHP y Jquery.`,
     link: "http://veterinaria.rf.gd/",
     imagen: "/trabajos/trabajo-6.webp",
+    tipo: "full-stack",
   },
   {
     color: "bg-[#FFF5EE]",
-    titulo: "Full-stack - Tienda de ropa",
-    descripcion:
-      `Sitio web desarrollado en mi etapa de estudiante sobre una tienda de ropa. 
+    titulo: "Tienda de ropa",
+    descripcion: `Sitio web desarrollado en mi etapa de estudiante sobre una tienda de ropa. 
       Se pueden gestionar los productos en el carrito y posteriormente finalizar la compra 
       (no cuenta con ninguna API de algún banco). Trabajado con PHP y Jquery.`,
     link: "http://carrito-tienda-ropa.rf.gd/",
     imagen: "/trabajos/trabajo-5.webp",
+    tipo: "full-stack",
   },
   {
     color: "bg-[#F5F0E7]",
-    titulo: "Front-End - Activa tu perfil",
+    titulo: "Activa tu perfil",
     descripcion: "Desarrollado con Astro y TailwindCSS",
     link: "https://activatuperfil.vercel.app/",
     imagen: "/trabajos/trabajo-2.webp",
+    tipo: "front-end",
   },
   {
     color: "bg-[#F5E7F4]",
-    titulo: "Front-End - Tendencias MyM",
+    titulo: "Tendencias MyM",
     descripcion: "Desarrollado con ReactJs y TailwindCSS",
     link: "https://www.tendenciasmym.cl/",
     imagen: "/trabajos/trabajo-1.webp",
+    tipo: "front-end",
   },
 ];
 ---
@@ -67,17 +90,7 @@ const TRABAJOS = [
     <img width="35" height="35" src="/folder.webp" alt="folder-icon" />
   </div>
 
-  <div class="bg-white grid grid-cols-1 md:grid-cols-2 gap-12">
-    {
-      TRABAJOS.map((item) => (
-        <TrabajosItem
-          color={item.color}
-          titulo={item.titulo}
-          descripcion={item.descripcion}
-          link={item.link}
-          imagen={item.imagen}
-        />
-      ))
-    }
+  <div class="z-[200]">
+    <TabsTrabajos myProyects={TRABAJOS} client:load />
   </div>
 </section>

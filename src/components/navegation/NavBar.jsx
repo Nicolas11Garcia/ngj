@@ -1,15 +1,13 @@
-import React from "react";
 import {
+  Link,
   Navbar,
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link,
-  Button,
-  NavbarMenuToggle,
   NavbarMenu,
+  NavbarMenuToggle
 } from "@nextui-org/react";
-import { Whatsapp } from "../icons/Whatsapp";
+import React from "react";
 
 export const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -19,7 +17,7 @@ export const NavBar = () => {
   }
 
   return (
-    <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+    <Navbar className="z-[400]" isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
       {/*Logo */}
       <NavbarContent justify="start">
         <NavbarBrand>
